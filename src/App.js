@@ -1,23 +1,21 @@
-import logo from './logo.svg';
+
 import './App.css';
+import Child from './Component/Child/Child';
+import SuperChild from './Component/SuperChild/SuperChild';
+import { Formcontex } from './Component/SuperChild/Contexapi';
+import { useContext } from 'react';
 
 function App() {
+  const { formdata} = useContext(Formcontex);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      
+     <h4>This is Parent</h4> 
+      <label>Name:{formdata.name}    Age:{formdata.age}</label>
+     <Child></Child>
+     <SuperChild></SuperChild>
+    
     </div>
   );
 }
